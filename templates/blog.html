@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% block title %}<div class="header" id="home">
+
+	<nav class="nav nav-default navbar-top">
+	
+		<h1>My Thoughts </h1>
+   	</nav>
+   	</div>{% endblock %}
+
+
+
+{% block content %}
+    
+<div class="container-fluid">
+	<div class="col-sm-3 col-md-3 col-lg-3 hidden-xs" id="blogTopics">
+    	<h4>Recent Posts</h4>
+    		{% if posts %}
+        		<ul>
+        		{% for post in posts %}
+            	<li><a href="{{post.get_absolute_url }}">{{ post.title }}</a></li>
+        		{% endfor %}
+        		</ul>
+    		{% else %}
+        		<p>There are no posts.</p>
+    		{% endif %}
+    	<br>
+    	<br>
+		<h4>Categories</h4>
+			{% if categories %}
+				<ul>
+					{% for category in categories %}
+					<li><a href="{{category.get_absolute_url }}">{{ category.title }} ({{category.amount}})</a></li>
+					{% endfor %}
+				</ul>
+					{% else %}
+					<p>There are no posts.</p>
+					{% endif %}
+	</div>
+    <div class="col-sm-9 col-md-9 col-lg-9">
+    	{% if posts %}
+        {% for post in posts %}
+        <div class="container-fluid" id=blogTitle>
+				<div class="col-sm-8 col-md-8 col-lg-8">
+					<h3>{{ post.title }}</h3>
+				</div>
+            
+				<div class="col-sm-4 col-md-4 col-lg-4">
+					<p>{{post.posted}}</p>
+				</div>
+        
+        		<br>
+        </div>
+				<div class="col-sm-12 col-md-12 col-lg-12 blogBody">
+					<p>{{post.body}}</p>
+					<br>
+					<hr>  
+				</div>
+        {% endfor %}
+    
+    	{% else %}
+        		<p>There are no posts.</p>
+    	{% endif %}	
+        </div>
+        <nav class="navbar navbar-default navbar-fixed-bottom" data-target="#main-nav">
+		<div class="container">
+			<div class="navbar-header">
+					<div class="visible-xs" id="socialIcons">
+						<a href="http://www.twitter.com/soniahinson"><i class="fa fa-twitter fa-2x"></i></a>
+						<a href="http://www.github.com/shinson"><i class="fa fa-github-alt fa-2x"></i></a>
+						<a onclick="$('html, body').animate({ scrollTop: $('#home').offset().top -50}, 800);"><i class="fa fa-arrow-up fa-2x"></i></a>
+					</div>
+			</div>
+		</div> 
+        <div class="hidden-xs">
+			<ul class="nav navbar-nav">
+				<li class="active">
+					<a class="hidden-xs" href="#">Home</a>
+				</li>
+				<li>
+					<a class="scroll-link" data-id="about" href="/#about">About</a>
+				</li>
+				<li>
+					<a href="/blog">Blog</a>
+				</li>
+				<li>
+					<a class="scroll-link" data-id="project" href="/#project">Projects</a>
+				</li>
+			</ul>
+			</div>
+			<ul class="nav navbar-nav hidden-xs" id="socialIcons">
+				<li>
+					<a href="http://www.twitter.com/soniahinson"><i class="fa fa-twitter fa-2x"></i></a>
+				</li>
+				<li>
+					<a href="http://www.github.com/shinson"><i class="fa fa-github-alt fa-2x"></i></a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+       
+{% endblock %}
