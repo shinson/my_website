@@ -33,3 +33,9 @@ class Category(models.Model):
     @permalink
     def get_absolute_url(self):
         return ('view_blog_category', None, { 'slug': self.slug })
+    
+    
+    
+    
+
+

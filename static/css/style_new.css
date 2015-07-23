@@ -171,7 +171,7 @@ ul.nav a:hover{
 	
 	background-color:#FFF;
 	width:100%;
-	height:150%;
+	height:100%;
 	padding:65px 0px 80px 0px;
 	}
 	
@@ -241,6 +241,54 @@ ul.nav a:hover{
 	padding-top:50px;
 }
 
+#thanks {
+text-align: center;
+}
+
+#contactForm  {
+margin: 10px auto;
+width: 35%;
+text-align: right;
+}
+
+#contactForm label  {
+	float: left;
+	font-size:18px;
+	font-family: 'Roboto', sans-serif;
+	font-style: normal;
+	color: #000;
+
+}
+
+#contactForm input {
+	font-size: 16 px;
+	font-family: Arial, sans-serif;
+	font-style: strong;
+	color: #000;
+	}
+	
+#contactForm button {
+	width: 100%;
+	margin-top: 25px;
+	float: none;
+	}
+
+#name {
+	width: 200px;
+	}
+
+#email {
+	width: 200px;
+	}
+
+#subject {
+	width: 200px;
+	}
+
+#message {
+	width: 200px;
+	height: 215px;
+	}
 
 .fa {
 	color:#CCAE34;
@@ -281,11 +329,28 @@ ul.nav a:hover{
 	100%{opacity: 0;}
 	}
 
+@media (max-width: 900px) {
+	#contactForm {
+	width:100%;
+	float: none;
+	}
+	#contactForm label  {
+	font-size:14px;
+	}
+	#contactForm input {
+	font-size: 14 px;
+	}
+	#contactForm button {
+	margin-top: 5px;
+	}
+	}
+
 @media (max-width: 770px) {
 	#info {
 	margin: 20px auto 0px;
 	height: 100%;
 	}
+
 }
 
 @media (max-width: 360px) {

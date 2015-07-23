@@ -49,9 +49,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'website.urls'
+ROOT_URLCONF = 'marchmadness.urls'
 
-WSGI_APPLICATION = 'website.wsgi.application'
+WSGI_APPLICATION = 'marchmadness.wsgi.application'
 
 
 # Database
@@ -64,22 +64,12 @@ DATABASES = {
     }
 }
 
-TEMPLATE_DIRS = (
-	os.path.abspath('templates'),
-)
-
-TEMPLATE_CONTEXT_PROCESSORS = (
-	'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.static',
-)
-
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'America/New_York'
+TIME_ZONE = 'UTC'
 
 USE_I18N = True
 
@@ -91,9 +81,24 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-import os
-STATIC_ROOT = 'staticfiles'
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, "static"), 
+   os.path.join(os.path.dirname(BASE_DIR),"marchmadness", "static"),
 )
+STATIC_ROOT = 'staticfiles/'
+
+
+# Template directory
+
+TEMPLATE_DIRS = (
+	os.path.join(os.path.dirname(BASE_DIR),"marchmadness", "static", "templates"),
+	)
+
+APPEND_SLASH=True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST= 'smtp.gmail.com'
+EMAIL_HOST_USER = 'sonia.hinson@gmail.com'
+EMAIL_HOST_PASSWORD = 'nsmstcrsdrtmopxs'
+EMAIL_PORT= '587'
+EMAIL_USE_TLS   = True
+SERVER_EMAIL = 'contact@soniahinson.com'
