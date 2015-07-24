@@ -49,9 +49,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'marchmadness.urls'
+ROOT_URLCONF = 'website.urls'
 
-WSGI_APPLICATION = 'marchmadness.wsgi.application'
+WSGI_APPLICATION = 'website.wsgi.application'
 
 
 # Database
@@ -83,7 +83,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-   os.path.join(os.path.dirname(BASE_DIR),"marchmadness", "static"),
+   os.path.join(os.path.dirname(BASE_DIR),"my_website", "static"),
 )
 STATIC_ROOT = 'staticfiles/'
 
@@ -91,14 +91,14 @@ STATIC_ROOT = 'staticfiles/'
 # Template directory
 
 TEMPLATE_DIRS = (
-	os.path.join(os.path.dirname(BASE_DIR),"marchmadness", "static", "templates"),
+	os.path.join(os.path.dirname(BASE_DIR),"my_website","templates"),
 	)
 
 APPEND_SLASH=True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST= 'smtp.gmail.com'
-EMAIL_HOST_USER = 'sonia.hinson@gmail.com'
-EMAIL_HOST_PASSWORD = 'nsmstcrsdrtmopxs'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT= '587'
 EMAIL_USE_TLS   = True
-SERVER_EMAIL = 'contact@soniahinson.com'
+SERVER_EMAIL = ''

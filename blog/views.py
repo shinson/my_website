@@ -19,7 +19,7 @@ class homeView(TemplateView):
 		return context	
 
 def blogView(request):
-	template = 'blog_404.html'
+	template = 'blog.html'
 	context = {"categories": Category.objects.all(), "posts": Blog.objects.all()[:5]}
 	return render(request, template, context)
 
