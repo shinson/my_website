@@ -37,6 +37,14 @@ h2 {
 	margin: 10px auto;
 	width: 100%;
 	}
+
+h3 {
+	font-size: 24px;
+	color: #34CCBC;
+	text-align: left;
+	margin: 10px auto;
+	width: 100%;
+	}
 	
 p {
 	font-size:28px;
@@ -49,6 +57,8 @@ nav.nav-default.navbar-fixed-bottom {
 	background-color:rgba(0, 0, 0, 0.8);
 	border-top: 2px solid rgb(0, 0, 0, 1);
 	height: 45px;
+	margin-top: 10px;
+	padding: 0px !important;
 	}
 
 ul.nav a:hover{
@@ -114,7 +124,7 @@ ul.nav a:hover{
 	
 .hidden-xs.hidden-sm.col-md-6.col-lg-6{
 	margin: 20px 30px;
-	width:42%;
+	width:45%;
 	text-align: center;
 	
 	}
@@ -136,7 +146,7 @@ ul.nav a:hover{
 }
 	
 #space{
-	height: 725px;
+	height: 100%;
 	background-image: url("../photos/IMG_2332.JPG");
 	background-repeat:no-repeat;
 	background-size: cover;
@@ -144,7 +154,7 @@ ul.nav a:hover{
 	}
 
 #secondSpace {
-	height: 650px;
+	height: 100%;
 	background-image: url("../photos/IMG_1690.JPG");
 	background-repeat:no-repeat;
 	background-size: cover;
@@ -152,7 +162,7 @@ ul.nav a:hover{
 }
 
 #thirdSpace{
-	height: 750px;
+	height: 100%;
 	background-image: url("../photos/IMG_0373.JPG");
 	background-repeat:no-repeat;
 	background-size: cover;
@@ -171,7 +181,7 @@ ul.nav a:hover{
 	
 	background-color:#FFF;
 	width:100%;
-	height:150%;
+	height:100%;
 	padding:65px 0px 80px 0px;
 	}
 	
@@ -199,13 +209,16 @@ ul.nav a:hover{
 	color:#9AEEFF;
 	}
 
-.visible-xs {
+#socialIcons {
   margin: 0px 35%;
+}
+visible-xs.visible-sm.hidden-md.hidden-lg.hidden-xl {
+margin: 0px;
 }
 
 #socialIcons{
 	float:right;
-	margin-bottom: 15px;
+	margin: 10px 0px;
 	}
 
 #socialIcons i {
@@ -214,7 +227,24 @@ ul.nav a:hover{
 	
 	}
 
+#socialIcons a {
+  padding: 0px 10px !important;
+}
+
+#socialIconsSmall {
+	margin: 10px auto;
+	text-align: center;
+}
+
+#socialIconsSmall i{
+	padding: 0px 20px;
+	color:#34CCBC;
+}
+
 #socialIcons i:hover {
+	color:#9AEEFF;
+	}
+#socialIconsSmall i:hover {
 	color:#9AEEFF;
 	}
 
@@ -241,6 +271,54 @@ ul.nav a:hover{
 	padding-top:50px;
 }
 
+#thanks {
+text-align: center;
+}
+
+#contactForm  {
+margin: 10px auto 50px;
+width: 35%;
+text-align: right;
+}
+
+#contactForm label  {
+	float: left;
+	font-size:18px;
+	font-family: 'Roboto', sans-serif;
+	font-style: normal;
+	color: #000;
+
+}
+
+#contactForm input {
+	font-size: 16 px;
+	font-family: Arial, sans-serif;
+	font-style: strong;
+	color: #000;
+	}
+	
+#contactForm button {
+	width: 100%;
+	margin-top: 25px;
+	float: none;
+	}
+
+#name {
+	width: 200px;
+	}
+
+#email {
+	width: 200px;
+	}
+
+#subject {
+	width: 200px;
+	}
+
+#message {
+	width: 200px;
+	height: 215px;
+	}
 
 .fa {
 	color:#CCAE34;
@@ -249,6 +327,131 @@ ul.nav a:hover{
 
 .hidden-md.hidden-sm.hidden-xs.col-lg-4 i {
 	padding-top: 125px;
+	}
+
+.date {
+	font-size: 20px;
+	margin: 10px auto;
+	text-align:left;
+	}
+
+.postBody {
+	
+  	padding: 0px 15px;
+  	margin: 40px 0px;
+	}
+
+.col-sm-12.col-md-12.col-lg-12.blogBody{
+	padding: 10px 25px;
+	}
+
+.col-sm-12.col-md-12.col-lg-12.blogBody p,.col-sm-12.col-md-12.col-lg-12.blogBody blockquote  {
+	font-size: 18px;
+	}
+
+#viewCat {
+	margin: 20px 0px 20px 15%;
+  	width: 30%;
+  	font-family: 'Roboto', sans-serif;
+  	text-align: center;
+	}
+
+#viewCat h3{
+	font-weight: bold;
+	margin-bottom: 10px;
+	text-align: center;
+	font-size: 35px;
+	color: #CCAE34;
+	}
+	
+#viewCat a{
+	font-size:22px;
+	
+	}
+
+#viewCat ul{
+	padding: 0px;
+	
+	}
+
+#viewCat li{
+	list-style:none;
+	margin-bottom: 5px;
+	padding: 0px;
+	
+	}
+
+#blogTopics h4, #blogTopics a  {
+	font-family: 'Roboto', sans-serif;
+	padding: 0px 10px;
+	font-size: 20px;
+	}
+
+#blogTopics a {
+	color: #CCAE34;
+	font-size: 16px;
+	}
+
+#blogTopics ul {
+	padding-left: 3px;
+	}
+
+#blogTopics a:hover {
+	color: #9AEEFF;
+	}
+	
+#blogMenu {
+	margin: 20px 0px;
+  	border-right: solid #efefef 1px;
+  	height: 100%;
+  	
+	}
+
+#blogMenuBottom {
+	margin: 50px 0px 0px;
+  	width: 100%;
+  	
+	}
+
+#blogMenuBottom a{
+	margin: 5px 0px;
+	width: 100%;
+	font-size: 22px;
+	border-color: #999173;
+	color: #FFBD5A;
+	font-family: 'Roboto', sans-serif;
+	}
+
+#blogMenu a{
+	margin: 5px 0px;
+	width: 100%;
+	font-size: 22px;
+	border-color: #999173;
+	color: #FFBD5A;
+	font-family: 'Roboto', sans-serif;
+	}
+
+#viewpost {
+	padding: 0px 20px;
+}
+
+#viewpost p{
+	font-size: 18px;
+	padding: 5px 0px;
+}
+
+#viewPostDate{
+	text-align:right;
+	font-size: 22px;
+}
+
+.col-xs-6.hidden-sm.hidden-md.hidden-lg.hidden-xl{
+	margin-bottom: 50px;
+	}
+
+.pagination {
+	margin: 0px 25px 65px;
+  	float: right;
 	}
 
 @keyframes slideDown {
@@ -281,14 +484,58 @@ ul.nav a:hover{
 	100%{opacity: 0;}
 	}
 
+@media (max-width: 900px) {
+	#contactForm label  {
+	font-size:14px;
+	}
+	#contactForm input {
+	font-size: 14 px;
+	}
+	#contactForm button {
+	margin-top: 5px;
+	}
+	}
+
 @media (max-width: 770px) {
+	h1 {font-size:42px;}
 	#info {
 	margin: 20px auto 0px;
 	height: 100%;
 	}
+	#viewCat {
+	margin: 20px auto;
+  	width: 100%;
+  	
+	}
+	#viewCat h3 {
+	font-size: 30px;
+	text-align: center;
+	}
+	
+	h2 {font-size:36px;}
+	
+	 #blogTopics a {
+		font-size: 20px;
+		}
+	#contactForm {
+	width:50%;
+	float: none;
+	}
 }
 
+@media (max-width: 560px) {
+	#contactForm {
+	width:85%;
+	float: none;
+	}
+	}
+
 @media (max-width: 360px) {
+	#contactForm {
+	width:100%;
+	float: none;
+	}
+	h1 {font-size:34px;}
 	#info {
 	margin: 20px auto 0px;
 	height: 85%;
@@ -319,9 +566,38 @@ ul.nav a:hover{
 	margin: 50px auto 0px;
     height: 55px;
 	}
+	
+	#blogTopics a {
+		font-size: 14px;
+		}
+	
+	#blogTopics ul {
+		padding: 0px;
+		
+		}
+	
+	.col-sm-12.col-md-12.col-lg-12.blogBody p,.col-sm-12.col-md-12.col-lg-12.blogBody blockquote  {
+	font-size: 14px;
+	}
+	
+	#socialIconsSmall i {
+    padding: 0px 10px;
+	}
+	
+	.col-sm-12.col-md-12.col-lg-12.blogBody{
+	padding: 0px;
+	}
+	
+	.date {
+		font-size: 16px;
+		margin: 0px auto:
+		text-align: right;
+	}
+	
 }
 
 @media (max-width: 320px) {
+	
 	
 	.navbar-nav {
 		display: hidden;
@@ -370,11 +646,14 @@ ul.nav a:hover{
 	#project p {
 	font-size: 22px;
 	}
+	
 	.col-md-4.col-sm-4.col-xs-4 p {
 	padding:10px auto;
 	}
 	.col-md-4.col-sm-4.col-xs-4.hidden-lg {
     margin: 10px auto 5px;
 	}
+	
+	
 }
 

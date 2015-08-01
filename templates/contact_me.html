@@ -7,7 +7,7 @@
 <br>
 <div class="container-fluid">
 <section id="contactForm">
-<form role="form" method="POST" action="#">
+<form role="form" method="POST" action=".">
 		{% csrf_token %}
 		<div class="form-group"> 
 		<div>
@@ -38,29 +38,30 @@
 <nav class="nav nav-default navbar-fixed-bottom" data-target="#main-nav">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<div class="visible-xs" id="socialIcons" >
+				<div class="visible-xs" id="socialIconsSmall" >
+				<a href="{% url 'index' %}"><i class="fa fa-home fa-2x"></i></a>
 				<a href="http://www.twitter.com/soniahinson"><i class="fa fa-twitter fa-2x"></i></a>
 				<a href="http://www.github.com/shinson"><i class="fa fa-github-alt fa-2x"></i></a>
-				<a onclick="$('html, body').animate({ scrollTop: $('#home').offset().top -50}, 800);"><i class="fa fa-arrow-up fa-2x"></i></a>
+				<a href="{% url 'blog' %}"><i class="fa fa-lightbulb-o fa-2x"></i></a>
 				</div>
 			</div>
 		<div>
 		<div class="hidden-xs">
 			<ul class="nav navbar-nav">
 				<li class="active">
-					<a class="hidden-xs" href="/">Home</a>
+					<a class="hidden-xs" href="{% url 'index' %}">Home</a>
 				</li>
 				<li>
 					<a class="scroll-link" data-id="about" href="/#about">About</a>
 				</li>
 				<li>
-					<a href="/blog">Blog</a>
+					<a href="{% url 'blog' %}">Blog</a>
 				</li>
 				<li>
 					<a class="scroll-link" data-id="project" href="/#project">Projects</a>
 				</li>
 				<li>
-					<a class="scroll-link" data-id="project" href="/contact">Contact</a>
+					<a class="scroll-link" data-id="project" href="{% url 'contact' %}">Contact</a>
 				</li>
 			</ul>
 			</div>

@@ -17,8 +17,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-with open('website/secret_key.txt') as f:
-    SECRET_KEY = f.read().strip()
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,7 +37,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
-    'django_summernote',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -85,9 +83,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
-
+<<<<<<< HEAD
    os.path.join(os.path.dirname(BASE_DIR),"my_website", "static"),
-
+=======
+   os.path.join(os.path.dirname(BASE_DIR),"website", "static"),
+>>>>>>> b312fc76bf6721c0f704028e18dcd886d60848ab
 )
 STATIC_ROOT = 'staticfiles/'
 
@@ -101,10 +101,16 @@ TEMPLATE_DIRS = (
 APPEND_SLASH=True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST= 'smtp.gmail.com'
-
+<<<<<<< HEAD
 EMAIL_HOST_USER = ''
 EMAIL_HOST_PASSWORD = ''
 EMAIL_PORT= '587'
 EMAIL_USE_TLS   = True
 SERVER_EMAIL = ''
-
+=======
+EMAIL_HOST_USER = '**emailhere***'
+EMAIL_HOST_PASSWORD = '**password***'
+EMAIL_PORT= '587'
+EMAIL_USE_TLS   = True
+SERVER_EMAIL = 'contact@soniahinson.com'
+>>>>>>> b312fc76bf6721c0f704028e18dcd886d60848ab

@@ -1,23 +1,21 @@
 {% extends 'base.html' %}
-{% block title %}<div class="header" id="home">
-
-	<nav class="nav nav-default navbar-top">
-	
-		<h1>My Thoughts </h1>
-   	</nav>
-   	</div>{% endblock %}
-
-
-
 {% block content %}
-    
+<div class="header" id="home">
+
+	<nav class="nav nav-default">
+	
+		<h1 class="hidden-xs hidden-sm visible-md visible-lg visible-xl">My Thoughts</h1>
+		<h1 class="visible-xs visible-sm hidden-md hidden-lg hidden-xl">My Thoughts</h1>
+   	</nav>
+   	</div>
+    <br>
 <div class="container-fluid">
 	<div class="col-sm-3 col-md-3 col-lg-3 hidden-xs" id="blogTopics">
     	<h4>Recent Posts</h4>
     		{% if posts %}
         		<ul>
         		{% for post in posts %}
-            	<li><a href="{{post.get_absolute_url }}">{{ post.title }}</a></li>
+            	<li><a href="/view/{{post.slug}}">{{ post.title }}</a></li>
         		{% endfor %}
         		</ul>
     		{% else %}
@@ -29,7 +27,7 @@
 			{% if categories %}
 				<ul>
 					{% for category in categories %}
-					<li><a href="{{category.get_absolute_url }}">{{ category.title }} ({{category.amount}})</a></li>
+					<li><a href="/category/{{category.slug}}">{{ category.title }} ({{category.amount}})</a></li>
 					{% endfor %}
 				</ul>
 					{% else %}
@@ -38,20 +36,21 @@
 	</div>
     <div class="col-sm-9 col-md-9 col-lg-9">
     	{% if posts %}
-        {% for post in posts %}
-        <div class="container-fluid" id=blogTitle>
+        {% for post in all_posts %}
+       
+        <div class="container-fluid" id='blogTitle'>
 				<div class="col-sm-8 col-md-8 col-lg-8">
 					<h3>{{ post.title }}</h3>
 				</div>
             
 				<div class="col-sm-4 col-md-4 col-lg-4">
-					<p>{{post.posted}}</p>
+					<p class="date">{{post.posted}}</p>
 				</div>
         
         		<br>
         </div>
 				<div class="col-sm-12 col-md-12 col-lg-12 blogBody">
-					<p>{{post.body}}</p>
+					<p class="postBody" id="summernote">{{post.body|safe}}</p>
 					<br>
 					<hr>  
 				</div>
@@ -60,30 +59,76 @@
     	{% else %}
         		<p>There are no posts.</p>
     	{% endif %}	
-        </div>
-        <nav class="navbar navbar-default navbar-fixed-bottom" data-target="#main-nav">
-		<div class="container">
-			<div class="navbar-header">
-					<div class="visible-xs" id="socialIcons">
-						<a href="http://www.twitter.com/soniahinson"><i class="fa fa-twitter fa-2x"></i></a>
-						<a href="http://www.github.com/shinson"><i class="fa fa-github-alt fa-2x"></i></a>
-						<a onclick="$('html, body').animate({ scrollTop: $('#home').offset().top -50}, 800);"><i class="fa fa-arrow-up fa-2x"></i></a>
-					</div>
+        
+		<div class="pagination">
+			<span class="step-links">
+				{% if all_posts.has_previous %}
+					<a href="?page={{ all_posts.previous_page_number }}">previous</a>
+				{% endif %}
+
+				<span class="current">
+					Page {{ all_posts.number }} of {{ all_posts.paginator.num_pages }}.
+				</span>
+
+				{% if all_posts.has_next %}
+					<a href="?page={{ all_posts.next_page_number }}">next</a>
+				{% endif %}
+			</span>
 			</div>
-		</div> 
-        <div class="hidden-xs">
+	</div>
+    	<div id="blogTopics">
+       <div class="col-xs-6 hidden-sm hidden-md hidden-lg hidden-xl">
+    	<h4>Recent</h4>
+    		{% if posts %}
+        		<ul>
+        		{% for post in posts %}
+            	<li><a href="/view/{{post.slug}}">{{ post.title }}</a></li>
+        		{% endfor %}
+        		</ul>
+    		{% else %}
+        		<p>There are no posts.</p>
+    		{% endif %}
+    	</div>
+    	<div class="col-xs-6 hidden-sm hidden-md hidden-lg hidden-xl" >
+		<h4>Categories</h4>
+			{% if categories %}
+				<ul>
+					{% for category in categories %}
+					<li><a href="/category/{{category.slug}}">{{ category.title }} ({{category.amount}})</a></li>
+					{% endfor %}
+				</ul>
+					{% else %}
+					<p>There are no posts.</p>
+					{% endif %}
+	</div>
+	</div>
+<nav class="nav nav-default navbar-fixed-bottom">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<div class="visible-xs" id="socialIconsSmall" >
+				<a href="{% url 'index' %}"><i class="fa fa-home fa-2x"></i></a>
+				<a href="http://www.twitter.com/soniahinson"><i class="fa fa-twitter fa-2x"></i></a>
+				<a href="http://www.github.com/shinson"><i class="fa fa-github-alt fa-2x"></i></a>
+				<a href="{% url 'contact' %}"><i class="fa fa-envelope fa-2x"></i></a>
+				</div>
+			</div>
+		<div>
+		<div class="hidden-xs">
 			<ul class="nav navbar-nav">
 				<li class="active">
-					<a class="hidden-xs" href="#">Home</a>
+					<a class="hidden-xs" href="{% url 'index' %}">Home</a>
 				</li>
 				<li>
 					<a class="scroll-link" data-id="about" href="/#about">About</a>
 				</li>
 				<li>
-					<a href="/blog">Blog</a>
+					<a href="{% url 'blog' %}">Blog</a>
 				</li>
 				<li>
 					<a class="scroll-link" data-id="project" href="/#project">Projects</a>
+				</li>
+				<li>
+					<a class="scroll-link" data-id="project" href="{% url 'contact' %}">Contact</a>
 				</li>
 			</ul>
 			</div>
@@ -94,9 +139,10 @@
 				<li>
 					<a href="http://www.github.com/shinson"><i class="fa fa-github-alt fa-2x"></i></a>
 				</li>
+			
 			</ul>
 		</div>
 	</div>
 </nav>
-       
+<script> 
 {% endblock %}

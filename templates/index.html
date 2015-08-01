@@ -14,9 +14,11 @@
 	<nav class="nav nav-default navbar-fixed-bottom" data-target="#main-nav">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<div class="visible-xs" id="socialIcons" >
+				<div class="visible-xs" id="socialIconsSmall" >
 				<a href="http://www.twitter.com/soniahinson"><i class="fa fa-twitter fa-2x"></i></a>
 				<a href="http://www.github.com/shinson"><i class="fa fa-github-alt fa-2x"></i></a>
+				<a href="{% url 'blog' %}"><i class="fa fa-lightbulb-o fa-2x"></i></a>
+				<a href="{% url 'contact' %}"><i class="fa fa-envelope fa-2x"></i></a>
 				<a onclick="$('html, body').animate({ scrollTop: $('#home').offset().top -50}, 800);"><i class="fa fa-arrow-up fa-2x"></i></a>
 				</div>
 			</div>
@@ -30,13 +32,13 @@
 					<a class="scroll-link" data-id="about" href="/#about">About</a>
 				</li>
 				<li>
-					<a href="/blog">Blog</a>
+					<a href="{% url 'blog' %}">Blog</a>
 				</li>
 				<li>
 					<a class="scroll-link" data-id="project" href="/#project">Projects</a>
 				</li>
 				<li>
-					<a class="scroll-link" data-id="project" href="/contact">Contact</a>
+					<a class="scroll-link" data-id="project" href="{% url 'contact' %}">Contact</a>
 				</li>
 			</ul>
 			</div>
@@ -66,7 +68,7 @@
     	</div>
 		<div class="hidden-md hidden-sm hidden-xs col-lg-4 infoThree" id="centerInfo">
 			<i class="fa fa-lightbulb-o fa-3x"></i>  
-			<p>See what I <a href="/blog">think</a></p>
+			<p>See what I <a href="{% url 'blog' %}">think</a></p>
 		</div>
 		<div class="hidden-md hidden-sm hidden-xs col-lg-4 infoThree">
 			<i class="fa fa-gears fa-3x"></i>    
@@ -78,7 +80,7 @@
     	</div>
 		<div class="col-md-4 col-sm-4 col-xs-4 hidden-lg" id="centerInfoSmall">
 			<i class="fa fa-lightbulb-o fa-3x"></i>  
-			<p>See what I <a href="/blog">think</a></p>
+			<p>See what I <a href="{% url 'blog' %}">think</a></p>
 		</div>
 		<div class="col-md-4 col-sm-4 col-xs-4 hidden-lg">
 			<i class="fa fa-gears fa-3x"></i>    
@@ -132,7 +134,7 @@
 		<h2>Projects</h2>
 		<br>
 		<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-			<a href="http://www.shinson.pythonanywhere.com"><i class="fa fa-calculator fa-3x"></i></a>
+			<a href="http://shinson.pythonanywhere.com"><i class="fa fa-calculator fa-3x"></i></a>
 			<div class="hidden-xs">
 			<p>Healthcare Caseload</p>
 			<p>Calculator</p>
