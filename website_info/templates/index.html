@@ -1,0 +1,132 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% block content %}
+{% include "header.html" %}
+<div class="intro" id="home">
+	<div class="slogan">
+		<h1>Data</h1>
+		<h1>Tech</h1>
+		<h1>Web</h1>
+	</div>
+	<div class="aboutMe">
+		<img id="headshot" src={% static "photos/photoshoot.jpg" %} />
+		<p>I'm a self-taught full stack developer specializing in data analytics applications. I enjoy teaching women programming in my free time.</p>
+	</div>
+</div>
+<div id="resume" class="resume">
+	<div class="resumeWork">
+		<div class="work">
+			<h2>Work</h2>
+			{% for entry in work %}
+			<div class="company">
+			<p>{{entry.company}}</p>
+			<i class="fa fa-plus icn-more" aria-hidden="true"></i>
+			</div>
+			<div class="work readMore">
+				<p>{{entry.date_range}}</p>
+				<p>{{entry.description}}</p>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+	<div class="resumeGraphics">
+		<div class="skills">
+			{% regroup skills by get_category_display as skills_list %}
+
+			{% for skill in skills_list %}
+			<div class="skillFlex">
+			<h2>{{skill.grouper}}</h2>
+			<table class="skillsTable">
+				{% for s in skill.list %}
+				<tr>
+					<td>{{s.skill}}</td>
+					<td class="skillsCircle"><p>{{s.level}}/5</p></td>
+					<td class="skillsDots">
+						{% for i in "x"|rjust:"5" %}
+
+						{% if forloop.counter <= s.level %}
+						<i class="fa fa-circle fa-1 levelTrue" aria-hidden="true"></i>
+						{% endif %}
+						{% if forloop.counter > s.level %}
+						<i class="fa fa-circle fa-1 levelFalse" aria-hidden="true"></i>
+						{% endif %}
+						{% endfor %}
+					</td>
+				</tr>
+				{% endfor %}
+			</table>
+			</div>
+			{% endfor %}
+
+		</div>
+
+		<div class="freeTime">
+			{% include "graph.html" %}
+		</div>
+	</div>
+</div>
+	<div class="graphSeparated">
+		{% include "graph.html" %}
+	</div>
+<div id="mediaProjects" class="mediaProjects">
+<div id="media" class="media">
+	<h2>Press</h2>
+	{% regroup media by get_category_display as media_list %}
+	{% for items in media_list %}
+	<h4>{{items.grouper}}</h4>
+	<ul>
+		{% for i in items.list %}
+		<li><a href={{i.url}}>{{i.title}}</a></li>
+		{% endfor %}
+	</ul>
+	{% endfor %}
+</div>
+<div id="project" class="projects">
+	<h2>Projects</h2>
+	<div class="projectDescription">
+	{% for project in projects %}
+	
+	<table id="elmProject{{project.uid}}" class="projectTable">
+		<tr>
+			<td>
+			<div class="image-container"
+			style="background-image: url({{project.photo.url}})">
+			</div>
+			<td>
+			<h3>{{project.name}}</h3>
+			<p>{{project.description}}
+			{% if project.project_url %} 
+			<a href="{{project.project_url}}">Project</a> 
+			{% endif %}
+			{% if project.project_url and project.code_url%}
+			 // 
+			{% endif %}
+			{% if project.code_url %} 
+			<a href="{{project.code_url}}">Code</a> 
+			{% endif %}
+			</p></td>
+		</tr>
+	</table>
+	{% endfor %}
+	</div>
+	<div class="projectContainer">
+	{% for project in projects %}
+	<div class="projectSquare">
+	<div data-target="elmProject{{project.uid}}" class="projectSquareItem">
+	<p>{{project.name}}</p>
+	</div>
+	</div>
+	{% endfor %}
+	</div>
+	</div>
+</div>
+<div id="contact" class="contact">
+	<label>Contact Me.</label>
+	<a href="https://www.linkedin.com/in/soniahinson"><i class="fa fa-linkedin fa-3x" aria-hidden="true"></i></a>
+	<a href="https://github.com/shinson"><i class="fa fa-github-alt fa-3x" aria-hidden="true"></i></a>
+	<a href="https://twitter.com/SoniaHinson"><i class="fa fa-twitter fa-3x" aria-hidden="true"></i></a>
+	<a href="https://www.instagram.com/soniahinson/"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
+	<a href="mailto:contact@soniahinson.com"><i class="fa fa-envelope-o fa-3x" aria-hidden="true"></i></a>
+</div>
+
+	{% endblock %}

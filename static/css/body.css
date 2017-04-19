@@ -1,0 +1,516 @@
+body, html{
+	width: 100%;
+	height: 100%;
+	margin: 0;
+}
+
+p {
+	font-family: 'Raleway', sans-serif;
+	font-size: 20px;
+}
+
+h1, h2, h3{
+	font-family: 'Fjalla One', sans-serif;
+}
+
+
+h4 {
+	font-family: 'Average', serif;
+	font-style: italic;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+	color: #134f5c;
+}
+
+.intro{
+	padding-top: 50px;
+	max-width: 1500px;
+}
+
+.slogan{
+
+	height: 100vh;
+	align-self: center;
+	flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.slogan h1{
+	text-align: center;
+	margin: 14% 0;
+	font-size: 50px;
+	color: #434343;
+	text-transform: uppercase;
+	vertical-align: middle;
+}
+
+.slogan h1:nth-child(1){
+	margin-top:0;
+}
+
+.aboutMe{
+	height: calc(100vh - 50px);
+	align-self: center;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10%;
+}
+
+.aboutMe p{
+	text-align: center;
+}
+
+#headshot{
+	width: 200px;
+	height: 200px;
+	border-radius: 50%;
+	margin: 0 auto 20px;
+
+}
+
+.resume {
+	margin: 0 5%;
+	padding: 5% 0;
+	display: flex;
+	height: 100vh;
+	align-self: center;
+	flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 1500px;
+}
+
+.freeTime{
+	display:none;
+}
+
+
+
+.work.readMore{
+	display:none;
+	opacity: 0;
+	transition: opacity 0.5s linear 0.7s;
+	width: 100%;
+}
+
+.work.readMore p {
+	width: 100%;
+	font-size: 14px;
+}
+
+.work.readMore p:nth-child(1) {
+	font-family: 'Average', 'Garamond', serif;
+	font-style: italic;
+	margin: 0;
+}
+
+.work.readMore.isOpen{
+	opacity: 1;
+	display: inline-block !important;
+}
+
+.company{
+	width: 100%;
+}
+
+.company p{
+	font-size: 16px;
+	width: 85%;
+	float: left;
+	margin: 10px 0;
+}
+
+.company i.fa.fa-plus {
+    float: right;
+    margin: 10px 0;
+    color: #134f5c;
+}
+
+.skills{
+	display:inline-block;
+}
+
+.skillFlex{
+	display:inline-block;
+	width: 49%;
+}
+
+table.skillsTable {
+    width: 95%;
+}
+
+table.skillsTable tr{
+	height: 23px;
+}
+
+td.skillsDots{
+	display:none;
+}
+
+.levelTrue{
+	color: #134F5C;
+}
+
+.levelFalse{
+	color:#45818E;
+}
+
+.resume h2{
+	margin: 7px 0;
+}
+
+.resume td:nth-child(1){
+		width:100% ;
+		font-size: 13px;
+		font-family: 'Average', 'Garamond', serif;
+	}
+
+.resume td.skillsCircle {
+	width: 10px;
+    color: #3D7B7B;
+    text-align: right;
+
+}
+
+.resume td.skillsCircle p{
+	font-family: 'Average', 'Garamond', serif;
+    font-size: 11px;
+    border: 1px solid #3D7B7B;
+    border-radius: 100%;
+    color: #3D7B7B;
+    padding: 3px;
+    text-align: right;
+}
+
+.media {
+	margin: 0 5%;
+	height: 100vh;
+	align-self: center;
+	flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.media, .projects{
+	padding: 15% 0;
+}
+
+.media h4, .projects h4{
+	margin-top: 2px;
+	margin-bottom: 5px;
+	color: #333;
+}
+
+.media ul{
+	padding-left: 0;
+	margin-top: 0;
+}
+
+.media li{
+	list-style: none;
+	margin: 4px 0 0 ;
+}
+
+.media li:before{
+	content: '+';
+	margin-right: 7px;
+}
+
+.media a {
+	font-family: "Raleway", sans-serif;
+    color: #6f7b7b;
+    font-size: 13px;
+}
+
+.projects{
+	margin: 0px 5% 10px;
+	height: 100vh;
+	align-self: center;
+	flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.projectContainer{
+	margin: 50px auto;
+	width: 100%;
+	max-width: 1000px;
+	display: -webkit-flex;
+	display: flex;
+	-webkit-flex-direction: row;
+	flex-direction: row;
+  	flex-wrap: wrap;
+}
+
+.projectSquare{
+  	flex: 0 0 96px;
+  	height: 96px;
+}
+
+.projectSquareItem{
+   	padding: 0 1px;
+}
+
+.projectSquare:nth-child(4n+1){
+	background-color: #134F5C;
+}
+.projectSquare:nth-child(4n+2){
+	background-color: #45818E;
+}
+.projectSquare:nth-child(4n+3){
+	background-color: #7890CD;
+}
+
+.projectSquare:nth-child(4n+4){
+	background-color: #434343;
+}
+
+.projectSquareItem p{
+	display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    height: 96px;
+    width: 96px;
+    font-size: 12px;
+    font-family: 'Average', serif;
+    font-style: italic;
+    color: #fff;
+}
+.projectDescription{
+	display: none;
+}
+
+
+.projectDescription table td {
+	display: none;
+}
+
+.projectDescription table.isDisplay td{
+	display: inline;
+}
+
+.projectDescription .image-container {
+    width: 75px;
+    height: 75px;
+    background-size: contain;
+    background-color: #134F5C;
+  	background-blend-mode: multiply;
+  	opacity: 0.5;
+}
+
+.projectDescription td p {
+	font-family: 'Average', serif;
+	font-size: 14px;
+}
+
+.projectDescription td a {
+	font-family: 'Raleway', 'Arial', sans-serif;
+	font-size: 13px;
+	color:#7A8585;
+}
+
+.contact{
+	padding: 5px 0;
+	text-align: center;
+	background-color: #3D7B7B;
+	box-shadow: inset 0 3px 6px rgba(0,0,0,0.3);
+	-webkit-box-shadow: inset 0 3px 6px rgba(0,0,0,0.3);
+	-moz-box-shadow: inset 0 3px 6px rgba(0,0,0,0.3);
+}
+
+.contact label{
+	display: block;
+	margin: 20px auto;
+	font-family: 'Average', serif;
+	font-style: italic;
+}
+
+.contact i{
+	margin: 0px 8px 50px;
+}
+
+.contact a{
+	color:#1C2F2F
+}
+
+.contact a:hover{
+	color:#77C8C8
+}
+
+
+
+
+@media screen and (min-height:568px){
+	.media, .projects{
+	padding: 0;
+}
+}
+
+@media screen and (min-width: 600px) {
+	.slogan h1 { 
+		margin: 11% 0;
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.intro{
+		margin: 50px auto 0;
+	}
+
+	.slogan{
+		width: 50%;
+		float: left;
+	}
+	.slogan h1 {    
+		font-size: 64px;
+    	margin: 9% 0;
+    }
+	.logo {font-size: 22px;}
+
+	.resume{
+	    display: block;
+	}
+
+	.resume td.skillsCircle{
+		display:none;
+	}
+
+	td.skillsDots {
+        display: inline;
+	}
+
+	.resume td:nth-child(1){
+		width: 72%;
+    	font-size: 19px;
+	}
+
+	.resume h2{
+		margin-top: 30px;
+	}
+
+	.work h2{
+	text-align: left;
+	width: 100px;
+	}
+
+	.mediaProjects{
+		height: 100vh;
+		align-self: center;
+		flex: 1;
+	    display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	    max-width: 1500px;
+	}
+
+	.projects{
+	  height: 45%;
+	  align-self: flex-start;
+	}
+
+
+	.projectContainer {
+		margin-top: 50px;
+	}
+
+	.media{
+		height: 45%;
+		align-self: flex-start;
+	}
+
+}
+
+@media screen and (min-width: 1024px) {
+	.resumeWork{
+		height: 25vh;
+	}
+
+	.resumeGraphics {
+    display: inline;
+    width: 100%;
+    height: 75vh;
+    margin-top: 30px;
+	}
+
+	.skills {
+    width: 64%;
+	}
+
+	table.skillsTable tr {
+    height: 30px;
+	}
+
+	.resume td:nth-child(1) {
+    width: 50%;
+	}
+
+	td.skillsDots {
+		float:none;
+	}
+
+	.mediaProjects{
+		flex-direction: row;
+	}
+
+	.media{
+		display: inline;
+		align-self: center;
+	}
+
+	.projects{
+		width: 40%;
+		display:inline;
+		align-self: center;
+	}
+
+	.media, .projects{
+		padding-top: auto;
+	}
+
+}
+
+@media screen and (min-width: 1500px) {
+	.resume, .mediaProjects {	
+    margin: 5% auto;
+	}
+ }
+
+ @media screen and (orientation:landscape) and (max-height:414px) {
+  .slogan h1 {
+     margin: 2% 0;
+     font-size: 42px;
+    }
+
+  #headshot {
+    width: 150px;
+    height: 150px;
+  }
+
+  .aboutMe {
+    flex-direction: row;
+
+	}
+
+  .aboutMe p{
+  	margin-left: 20px;
+  	font-size: 18px;
+  	text-align: left;
+  }
+
+
+
+}
+

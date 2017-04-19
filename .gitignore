@@ -1,0 +1,11 @@
+#Untracked Files
+
+# Static
+/staticfiles
+/static/photos
+/project_photos
+
+#DB
+db.sqlite3
+migrations/
+

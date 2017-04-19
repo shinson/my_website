@@ -1,0 +1,96 @@
+.graphSeparated , .freeTime{
+  font-size: 12px;
+  width: 100%;
+  height: 350px;
+  position: relative;
+  margin-bottom: 50px;
+  font-style: italic;
+}
+
+.graphSeparated{
+	height: 100vh;
+	align-self: center;
+	flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.freeTime{
+	display:none;
+}
+
+.freeTime label, .graphSeparated label{
+	display: block;
+    text-align: center;
+    margin: 50px auto 0;
+    width: 100%;
+}
+
+
+svg {
+	width: 290px;
+	height: 300px;
+	display: block;
+	margin: 20px auto;
+
+}
+
+path.slice{
+	stroke-width:2px;
+}
+
+polyline{
+	opacity: .3;
+	stroke: black;
+	stroke-width: 1px;
+	fill: none;
+}
+
+
+@media screen and (orientation:portrait) and (min-width: 412px){
+	.graphSeparated  label{
+		font-size: 20px;
+	}
+}
+
+
+
+@media screen and (min-width: 768px) {
+	/*.freetime{
+		display:block;
+	}
+
+	.graphSeparated{
+		display: none;
+	}*/
+}
+
+@media screen and (min-width: 1024px) {
+	.freetime{
+		display:inline-block;
+		width: 36%;
+    	float: right;
+	}
+
+	.freetime label{
+	margin: 27px auto 0;
+	font-size: 18px;
+	}
+
+	.graphSeparated{
+		display: none;
+	}
+}
+
+@media screen and (orientation:landscape) and (max-height:360px) {
+	.graphSeparated label {
+    font-size: 16px;
+    margin-bottom: -34px;
+  }
+
+  .graphSeparated svg{
+  	height: 275px;
+  	margin: 0 auto;
+  }
+}
