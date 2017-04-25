@@ -12,5 +12,6 @@ project_photos
 
 # DB
 db.sqlite3
-migrations/
+blog/migrations
+website_info/migrations
 
