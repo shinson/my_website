@@ -17,8 +17,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-with open('website/secret_key.txt') as f:
-    SECRET_KEY = f.read().strip()
+
+SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'blog',
+    'website_info',
     'django_summernote',
 )
 
@@ -91,12 +92,27 @@ STATICFILES_DIRS = (
 )
 STATIC_ROOT = 'staticfiles/'
 
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR),"my_website")
+MEDIA_URL = "/media/"
+
 
 # Template directory
 
-TEMPLATE_DIRS = (
-	os.path.join(os.path.dirname(BASE_DIR),"my_website","templates"),
-	)
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, "website_info", "templates"), os.path.join(BASE_DIR, "blog", "templates")],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
 
 APPEND_SLASH=True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'

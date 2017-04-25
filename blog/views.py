@@ -10,18 +10,16 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.template.loader import get_template
 from django.core.mail import send_mail
 from django.core.urlresolvers import reverse
+from django.http import HttpResponse
+from django.template import loader
 
-class homeView(TemplateView):
-	template_name = 'index.html'
-	def get(self, request, **kwargs):
-		context = self.get_context_data()
-		return render(request, self.template_name, context)
-	def get_context_data(self, **kwargs):
-		context = {}
-		return context	
+def homeView(request):
+	template = loader.get_template('index.html')
+	context = {}
+	return HttpResponse(template.render(context, request))
 
 def blogView(request):
-	template = 'blog.html'
+	template = loader.get_template('blog.html')
 	blog_list = Post.objects.all()
 	paginator = Paginator(blog_list, 5)
 	page = request.GET.get('page')
@@ -34,19 +32,21 @@ def blogView(request):
 		# If page is out of range (e.g. 9999), deliver last page of results.
 		all_posts = paginator.page(paginator.num_pages)
 	context = {"categories": Category.objects.all(), "posts": Post.objects.all()[:5], "all_posts":all_posts }
-	return render(request, template, context)
+	return HttpResponse(template.render(context, request))
 
 	
 def postView(request, slug):
-	template_name = 'view_post.html'
+	template = loader.get_template('view_post.html')
 	post = Post.objects.filter(slug = slug)
-	return render(request, template_name, {'post':post})
+	context = {'post':post};
+	return HttpResponse(template.render(context, request))
 
 	
 def categoryView(request, slug):
-	template_name = 'view_category.html'
+	template = loader.get_template('view_category.html')
 	c = Category.objects.filter(slug = slug)
-	return render(request, template_name,{'category': c,'posts': Post.objects.filter(category=c)})
+	context = {'category': c,'posts': Post.objects.filter(category=c)}
+	return HttpResponse(template.render(context, request))
 
 def contactView(request):
 	form = ContactForm(request.POST)
@@ -54,10 +54,14 @@ def contactView(request):
 		subject = form.subject.data
 		message = "{0}\n-{1}".format(form.message.data, form.name.data)
 		sender = form.email.data
-		recipients = ['sonia.hinson@gmail.com']
+		recipients = ['contact@soniahinson.com']
 		send_mail(subject, message, sender, recipients)
 		return HttpResponseRedirect(reverse('thanks'))
-	return render_to_response('contact_me.html',{'form':form}, context_instance = RequestContext(request))
+	template = loader.get_template('contact_me.html')
+	context = {'form':form}
+	return HttpResponse(template.render(context, request))
 
 def thanksView(request):
-		return render_to_response('thanks.html')
+	template = loader.get_template('thanks.html')
+	context = {}
+	return HttpResponse(template.render(context, request))

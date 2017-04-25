@@ -1,11 +1,16 @@
 #Untracked Files
+.Python
+*.pyc
+lib/
+bin/
+include/
 
 # Static
-/staticfiles
-/static/photos
-/project_photos
+staticfiles/
+static/photos/
+project_photos
 
-#DB
+# DB
 db.sqlite3
 migrations/
 
