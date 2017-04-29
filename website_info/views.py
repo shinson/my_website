@@ -5,9 +5,9 @@ from models import *
 
 def homeView(request):
 	template = loader.get_template('index.html')
-	work = Work.objects.all();
-	skills = Skill.objects.all();
-	media = Media.objects.all().order_by('category');
-	projects = Project.objects.all();
+	work = Work.objects.all()
+	skills = Skill.objects.all().order_by('category')
+	media = Media.objects.all().order_by('category')
+	projects = Project.objects.all()
 	context = {"work": work, "skills": skills, "media": media, "projects": projects}
 	return HttpResponse(template.render(context, request))
