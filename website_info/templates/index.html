@@ -2,17 +2,25 @@
 {% load staticfiles %}
 {% block content %}
 {% include "header.html" %}
+<div id="triangles">
 <div class="intro" id="home">
-	<div class="slogan">
-		<h1>Data</h1>
-		<h1>Tech</h1>
-		<h1>Web</h1>
-	</div>
-	<div class="aboutMe">
-		<img id="headshot" src={% static "photos/photoshoot.jpg" %} />
-		<p>I'm a self-taught full stack developer specializing in data analytics applications. I enjoy teaching women programming in my free time.</p>
-	</div>
+   <div class="slogan">
+   	<div class="sloganOverlay">
+     <h1>Data</h1>
+     <h1>Tech</h1>
+     <h1>Web</h1>
+     </div>
+   </div>
+   <div class="aboutMe">
+     <img id="headshot" src={% static "photos/photoshoot.jpg" %} />
+     <p>I'm a self-taught full stack developer specializing in data analytics applications. I enjoy teaching women programming in my free time.</p>
+   </div>
 </div>
+</div>
+<div class="aboutMeSeparated">
+     <img id="headshot" src={% static "photos/photoshoot.jpg" %} />
+     <p>I'm a self-taught full stack developer specializing in data analytics applications. I enjoy teaching women programming in my free time.</p>
+ </div>
 <div id="resume" class="resume">
 	<div class="resumeWork">
 		<div class="work">

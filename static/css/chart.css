@@ -28,7 +28,7 @@
 }
 
 
-svg {
+.freeTime svg, .graphSeparated svg {
 	width: 290px;
 	height: 300px;
 	display: block;

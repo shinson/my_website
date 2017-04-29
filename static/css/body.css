@@ -27,9 +27,24 @@ a:hover {
 	color: #134f5c;
 }
 
+#triangles {
+	height: 100vh;
+}
+
+#triangles svg{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index: 1;
+}
+
 .intro{
 	padding-top: 50px;
 	max-width: 1500px;
+	position: absolute;
+	top:0;
+	left:0;
+	z-index:99;
 }
 
 .slogan{
@@ -40,6 +55,12 @@ a:hover {
     display: flex;
     flex-direction: column;
     justify-content: center;
+
+
+}
+
+.sloganOverlay h1, .aboutMe p {
+	background:rgba(250,250,250,0.9);
 }
 
 .slogan h1{
@@ -74,6 +95,10 @@ a:hover {
 	border-radius: 50%;
 	margin: 0 auto 20px;
 
+}
+
+.aboutMeSeparated{
+	display:none;
 }
 
 .resume {
@@ -364,6 +389,23 @@ td.skillsDots{
 		margin: 11% 0;
 	}
 }
+
+@media screen and (max-width: 768px) {
+	.aboutMe{
+		opacity:0;
+	}
+
+	.aboutMeSeparated{
+		height: calc(100vh - 50px);
+		align-self: center;
+		display: flex;
+	    flex-direction: column;
+	    justify-content: center;
+	    padding: 0 10%;
+	    text-align: center;
+	}
+}
+
 
 @media screen and (min-width: 768px) {
 	.intro{
